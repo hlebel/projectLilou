@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Screen 2</title>
+    <title>Écran avec Conteneur Fixé</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,100 +15,101 @@
         }
         .sidebar {
             position: fixed;
-            right: 0;
+            left: 0;
             top: 0;
-            width: 50px;
             height: 100%;
+            width: 15%;
             background-color: #f4f4f4;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
+            align-items: flex-end;
+            padding-top: 20px;
+            box-sizing: border-box;
             transition: width 0.3s ease;
-            overflow: hidden;
-            z-index: 1000;
         }
-        .sidebar.expanded {
-            width: 20%;
-        }
-        .sidebar .tab {
-            position: absolute;
-            top: 20px;
-            right: 100%;
+        .sidebar.collapsed {
             width: 50px;
-            padding: 10px 0;
+        }
+        .tab {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 120px;
             text-align: center;
             cursor: pointer;
             background-color: #FFA07A;
             border: 1px solid #ccc;
             border-radius: 5px 0 0 5px;
-            transition: all 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
             writing-mode: vertical-rl;
             text-orientation: mixed;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+            color: #02011a;
         }
-        .sidebar .tab:hover {
+        .tab:hover {
             background-color: #FF7F50;
-        }
-        .sidebar .content {
-            padding: 20px;
-            display: none;
-        }
-        .sidebar.expanded .content {
-            display: block;
         }
         .main-container {
             flex-grow: 1;
+            margin-left: 20%;
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
-            overflow: hidden;
+            transition: margin-left 0.3s ease;
         }
-        .image-container {
-            width: 100%;
-            height: 100%;
+
+        .tab.bibliographie {
+            top: 20px;
+            z-index: 1;
         }
-        .image-container img {
-            width: 100%;
-            height: auto;
-            display: block;
+        .tab.lexique {
+            top: 90px;
+            background-color: #90EE90;
+            z-index: 0;
         }
-        .text-sidebar {
-            width: 20%;
-            background-color: #e0e0e0;
-            padding: 20px;
-            box-sizing: border-box;
-            overflow-y: scroll;
+        .main-container.collapsed {
+            margin-left: 50px;
         }
+
     </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const sidebar = document.querySelector('.sidebar');
-            const tab = sidebar.querySelector('.tab');
-            tab.addEventListener('click', function() {
-                sidebar.classList.toggle('expanded');
-            });
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const sidebar = document.querySelector('.sidebar');
+        const tabBibliographie = document.querySelector('.tab.bibliographie');
+        const tabLexique = document.querySelector('.tab.lexique');
+        const mainContainer = document.querySelector('.main-container');
+
+        function toggleSidebar(tabToShow, tabToHide) {
+            sidebar.classList.toggle('collapsed');
+            mainContainer.classList.toggle('collapsed');
+            if (sidebar.classList.contains('collapsed')) {
+                tabToHide.style.display = 'none';
+            } else {
+                tabToHide.style.display = 'flex';
+            }
+        }
+
+        tabBibliographie.addEventListener('click', function() {
+            toggleSidebar(tabBibliographie, tabLexique);
         });
-    </script>
+
+        tabLexique.addEventListener('click', function() {
+            toggleSidebar(tabLexique, tabBibliographie);
+        });
+    });
+</script>
 </head>
 <body>
-    <div class="main-container">
-        <div class="image-container">
-            <img src="votre-image.png" alt="Image principale">
-        </div>
-    </div>
     <div class="sidebar">
-        <div class="tab">Bibliographie</div>
-        <div class="content">
-            <p>Qu'est-ce que le Lorem Ipsum ?</p>
-            <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500...</p>
-            <!-- Ajoutez plus de contenu ici -->
-        </div>
+        <div class="tab bibliographie">Bibliographie</div>
+        <div class="tab lexique">Lexique</div>
     </div>
-    <div class="text-sidebar">
-        <!-- Ajoutez ici le contenu textuel -->
-        <p>@username: Comment avez-vous fait pour générer cela ?</p>
-        <p>@rickroll: C'est très simple, j'ai utilisé un algorithme de génération procédurale.</p>
-        <!-- Ajoutez plus de texte ici -->
+    <div class="main-container">
+        <!-- Contenu principal ici -->
     </div>
 </body>
 </html>

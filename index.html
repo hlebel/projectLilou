@@ -7,22 +7,38 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
             text-align: center;
-            margin-top: 50px;
+            background-color: #fff;
+        }
+        .container {
+            max-width: 80%;
+            cursor: pointer;
         }
         .subtitle {
-            font-size: 18px;
+            font-size: 2vw;
             font-weight: bold;
         }
         .title {
-            font-size: 36px;
+            font-size: 4vw;
             font-weight: bold;
             color: #F4A460;
         }
     </style>
+    <script>
+        function redirectToPage() {
+            window.location.href = 'map.html';
+        }
+    </script>
 </head>
 <body>
-    <div class="subtitle">Rendez-vous en terre invisible présente</div>
-    <div class="title">TROLLAND PAR @RICKROLL</div>
+    <div class="container" onclick="redirectToPage()">
+        <div class="subtitle">Rendez-vous en terre invisible présente</div>
+        <div class="title">TROLLAND PAR @RICKROLL</div>
+    </div>
 </body>
 </html>

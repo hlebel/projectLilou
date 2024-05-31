@@ -12,6 +12,8 @@
             display: flex;
             height: 100vh;
             overflow: hidden;
+            background: url('background.png') no-repeat center center fixed;
+            background-size: cover;
         }
         .sidebar {
             position: fixed;
@@ -74,7 +76,54 @@
         .main-container.collapsed {
             margin-left: 50px;
         }
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            height: 100vh;
+        }
+        
+        .button {
+            flex: 1 0 33.33%; /* 3 buttons per row */
+            height: 33.33vh; /* Adjust this based on the aspect ratio you need */
+            /* background: url('background.png') no-repeat; */
+            background-size: 300% 300%; /* Adjust based on the number of buttons and their layout */
+            border: none;
+            cursor: pointer;
+        }
 
+        .part1 { background-position: 0% 0%; }
+        .part2 { background-position: 33.33% 0%; }
+        .part3 { background-position: 66.66% 0%; }
+        .part4 { background-position: 0% 33.33%; }
+        .part5 { background-position: 33.33% 33.33%; }
+        .part6 { background-position: 66.66% 33.33%; }
+        
+        @media (max-width: 768px) {
+            .button {
+                flex: 1 0 50%; /* 2 buttons per row */
+                height: 50vh;
+            }
+            .part1 { background-position: 0% 0%; }
+            .part2 { background-position: 50% 0%; }
+            .part3 { background-position: 0% 50%; }
+            .part4 { background-position: 50% 50%; }
+            .part5 { background-position: 0% 100%; }
+            .part6 { background-position: 50% 100%; }
+        }
+        
+        @media (max-width: 480px) {
+            .button {
+                flex: 1 0 100%; /* 1 button per row */
+                height: 33.33vh;
+            }
+            .part1 { background-position: 0% 0%; }
+            .part2 { background-position: 0% 33.33%; }
+            .part3 { background-position: 0% 66.66%; }
+            .part4 { background-position: 0% 100%; }
+            .part5 { background-position: 0% 133.33%; }
+            .part6 { background-position: 0% 166.66%; }
+        }
     </style>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -108,8 +157,16 @@
         <div class="tab bibliographie">Bibliographie</div>
         <div class="tab lexique">Lexique</div>
     </div>
-    <div class="main-container">
+    <!-- <div class="main-container"> -->
         <!-- Contenu principal ici -->
+    <!-- </div> -->
+    <div class="button-container">
+        <a href="page1.html" class="button part1"></a>
+        <a href="page2.html" class="button part2"></a>
+        <a href="page3.html" class="button part3"></a>
+        <a href="page4.html" class="button part4"></a>
+        <a href="page5.html" class="button part5"></a>
+        <a href="page6.html" class="button part6"></a>
     </div>
 </body>
 </html>

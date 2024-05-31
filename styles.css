@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: url('background.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.button {
+    display: block;
+    width: 100px; /* Set to the width of each button */
+    height: 100px; /* Set to the height of each button */
+    background: url('path/to/your/background-image.png') no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+.part1 {
+    background-position: 0 0;
+}
+
+.part2 {
+    background-position: -100px 0; /* Adjust based on the width of each button */
+}
+
+.part3 {
+    background-position: -200px 0; /* Adjust based on the width of each button */
+}
+
+.part4 {
+    background-position: 0 -100px; /* Adjust based on the height of each button */
+}
+
+.part5 {
+    background-position: -100px -100px; /* Adjust based on the width and height of each button */
+}
+
+.part6 {
+    background-position: -200px -100px; /* Adjust based on the width and height of each button */
+}

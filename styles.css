@@ -11,7 +11,7 @@ body {
     top: 0;
     height: 100%;
     width: 15%;
-    background-color: #f4f4f4;
+    background-color: #53429e;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -168,7 +168,7 @@ body {
     }
 }
 .left-container {
-    flex: 0 0 88%; /* Largeur égale à 80% de la largeur du container */
+    flex: 0 0 87%; /* Largeur égale à 80% de la largeur du container */
     background-image: url('./background.png'); /* Remplacez par l'URL de votre image */
     background-size: cover;
     background-position: center;
@@ -177,6 +177,28 @@ body {
 
 
 .right-container {
-    flex: 0 0 12%; /* Largeur égale à 20% de la largeur du container */
-    background-color: #f0f0f0; /* Couleur de fond de la deuxième boîte */
+    flex: 0 0 13%; /* Largeur égale à 20% de la largeur du container */
+    background-color: #53429e; /* Couleur de fond de la deuxième boîte */
 }
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid black;
+    height: 100%; /* Taille fixe du container */
+    overflow-y: auto; /* Ajoute une barre de défilement verticale */
+}
+.chat-message {
+    margin-bottom: 20px;
+}
+.user-human strong {
+    color: blue;
+}
+.user-rickroll strong {
+    color: red;
+}
+a {
+    color: blue;
+    text-decoration: underline;
+} 

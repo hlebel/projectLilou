@@ -3,27 +3,71 @@ document.addEventListener('DOMContentLoaded', function() {
     const tabBibliographie = document.querySelector('.tab.bibliographie');
     const tabLexique = document.querySelector('.tab.lexique');
     const buttons = document.querySelectorAll('.button');
+    const sidebarText = document.querySelector('.sidebar-text'); // Reference to the sidebar text element
 
-    function toggleSidebar(activeTab, inactiveTab, color) {
+    const defaultColor = '#9e94ca'; // Default color for sidebar
+
+    function toggleSidebar(activeTab, inactiveTab, color, text) {
         sidebar.classList.toggle('collapsed');
         
         if (sidebar.classList.contains('collapsed')) {
             tabBibliographie.style.visibility = 'visible';
             tabLexique.style.visibility = 'visible';
-            sidebar.style.backgroundColor = '#9e94ca'; // Reset to default color when collapsed
+            sidebar.style.backgroundColor = defaultColor; // Reset to default color when collapsed
+            sidebarText.style.display = 'none'; // Hide text when collapsed
         } else {
             activeTab.style.visibility = 'visible';
             inactiveTab.style.visibility = 'hidden';
             sidebar.style.backgroundColor = color; // Change sidebar color
+            sidebarText.innerHTML = text; // Change the text content (use innerHTML for HTML formatting)
+            sidebarText.style.display = 'block'; // Show text when sidebar is not collapsed
         }
     }
 
     tabBibliographie.addEventListener('click', function() {
-        toggleSidebar(tabBibliographie, tabLexique, getComputedStyle(this).backgroundColor);
+        const bibliographieText = `
+            - Qu’est-ce que le « numérique » ? Regards sur le champ lexical qui l’accompagne, Didier Dubasque, Dans Comprendre et maîtriser les excès de la société numérique (2019),<br><br>
+            - Troll, François Jost, Dans Comprendre la culture numérique (2019), pages 170 à 176<br><br>
+            - Dominique Cardon, « Le design de la visibilité », Réseaux, no 152, 30 janvier 2009, p. 93–137<br><br>
+            - <a href="https://www.urbandictionary.com" target="_blank">Urban Dictionary</a><br><br>
+            A propos d’amy’s baking compagny :<br><br>
+            - <a href="https://4chanarchives.com/board/ck/thread/7224636" target="_blank">4chan Archives</a><br><br>
+            - <a href="https://www.reddit.com/r/4chan/comments/1egof7/hi_is_this_amys_baking_company_do_you_serve/" target="_blank">Reddit 4chan Comments</a><br><br>
+            A propos de Narcissa Wrigth :<br><br>
+            - <a href="https://archive.org/details/LetsTalkAboutKiwifarmsRedditAnd4chan" target="_blank">Archive.org</a><br><br>
+            - <a href="https://kiwifarms.st/threads/narcissa-wright-cosmo-wright.24309/page-401" target="_blank">Kiwi Farms</a><br><br>
+            A propos de la guerre Tumblr et 4chan :<br><br>
+            - 4chan vs tumblr, guerre aux pays des geeks, Philippe Berry, 16/11/2010<br><br>
+            Web : <a href="https://www.20minutes.fr/web/623129-20101116-web-4chan-vs-tumblr-guerre-pays-geeks" target="_blank">20 Minutes</a><br><br>
+            A propos de Tay et de Nikocado Avocado :<br><br>
+            - Infernet, Pacome Thiellement, chez Blast<br><br>
+            A propos de Gamestop :<br><br>
+            - Arnaud Leparmentier, « Affaire GameStop : les fonds spéculatifs pris à leur propre jeu par les boursicoteurs américains », Le Monde.fr, 28 janvier 2021
+        `;
+        toggleSidebar(tabBibliographie, tabLexique, getComputedStyle(this).backgroundColor, bibliographieText);
     });
 
     tabLexique.addEventListener('click', function() {
-        toggleSidebar(tabLexique, tabBibliographie, getComputedStyle(this).backgroundColor);
+        const lexiqueText = `
+            Haters :<br><br>
+            désigne en anglais les personnes qui, en raison d’un conflit d’opinions ou parce qu’ils détestent quelqu’un ou quelque chose, passent leur temps à dénigrer des célébrités, des émissions de télévisions, des films, des vidéastes web, etc. sur les réseaux sociaux, ou à commenter des articles sur la Toile.<br><br>
+            Les raids de cyberharcèlement :<br><br>
+            Il s’agit d’un harcèlement réalisé via les outils numériques, visant une ou un groupe de personnes et réalisé en meute. C’est à dire impliquant — de manière concertée ou non — de nombreux individus. Ces raids sont souvent impulsés par un·e chef·fe de meute qui pointe la ou les cibles à harceler. Ce cyberharcèlement en meute crée un climat menaçant et intimidant pour la victime via des commentaires d’internautes, des mentions, des vidéos, des montages d’images, des messages sur des forums, la publication de données personnelles, etc.<br><br>
+            Attention whore :<br><br>
+            Est une personne de quelque genre que ce soit qui publie sur internet dans le but — avoué ou non — de se faire remarquer. Le comportement ne se limite pas à la publication de selfies, mais s’étend à tout tweet, statut, commentaire, interaction, que le type d’attention recherchée soit positive ou négative.<br><br>
+            L’attention whore éprouve la crainte que les photos ou les textes qu’il poste sur les réseaux sociaux ne recueille pas de like, ne soient pas partagés, etc. : sans capter l’attention, il est invisible, il n’existe pas.<br><br>
+            Ban :<br><br>
+            Se faire renvoyer / bannir d’une plateforme modéré<br><br>
+            Cancel :<br><br>
+            le processus au moyen duquel une personne dénoncée publiquement est expulsée des cercles sociaux ou professionnels — sur les médias sociaux ou dans le monde physique ou les deux. La personne serait pour ainsi dire « annulée ».<br><br>
+            Bad buzz et buzz :<br><br>
+            Un bad buzz est un phénomène de buzz c’est-à-dire un phénomène de « bouche à oreille » négatif qui se déroule et s’amplifie sur Internet.<br><br>
+            DM :<br><br>
+            C’est d’ailleurs le sigle de l’anglais direct message. On le traduit parfois en français par MP, c’est-à-dire message privé.<br><br>
+            Mèmes :<br><br>
+            C’est un élément ou un phénomène repris et décliné en masse sur Internet. Il prend souvent la forme d’une photo avec ou sans légende, d’une vidéo, d’une phrase, d’un mot, d’un gif animé, d’un son, d’un personnage fictif ou réel ou d’une communauté.
+        `;
+        toggleSidebar(tabLexique, tabBibliographie, getComputedStyle(this).backgroundColor, lexiqueText);
     });
 
     buttons.forEach(button => {

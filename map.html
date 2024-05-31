@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Écran avec Conteneur Fixé</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-
     <div class="main-container">
         <div class="left-container">
-            <div class="sidebar collapsed collapsed">
+            <div class="sidebar collapsed">
                 <div class="tab bibliographie">Bibliographie</div>
                 <div class="tab lexique">Lexique</div>
+                <div class="sidebar-text"></div> <!-- Added text element -->
             </div>
             <div class="button-container">
                 <button class="button part1" onclick="loadContent('content1')"></button>

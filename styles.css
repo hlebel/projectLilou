@@ -151,3 +151,34 @@ a {
     color: blue;
     text-decoration: underline;
 }
+
+.sidebar-text {
+    display: none; /* Initially hidden */
+    color: white;
+    font-size: 1em;
+    padding: 10px;
+    white-space: pre-wrap; /* Preserve whitespace and line breaks */
+    height: calc(100vh - 160px); /* Adjust height as needed */
+    overflow: auto; /* Enable scrolling if content exceeds height */
+    word-wrap: break-word; /* Break long words to ensure they fit within the container */
+    box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+}
+
+.sidebar:not(.collapsed) .sidebar-text {
+    display: block; /* Show when sidebar is not collapsed */
+}
+
+@media (max-width: 768px) {
+    .sidebar-text {
+        font-size: 0.9em; /* Adjust font size for smaller screens */
+        height: calc(100vh - 120px); /* Adjust height as needed */
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar-text {
+        font-size: 0.8em; /* Adjust font size for smaller screens */
+        height: calc(100vh - 100px); /* Adjust height as needed */
+    }
+}
+

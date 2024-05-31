@@ -2,34 +2,35 @@ document.addEventListener('DOMContentLoaded', function() {
     const sidebar = document.querySelector('.sidebar');
     const tabBibliographie = document.querySelector('.tab.bibliographie');
     const tabLexique = document.querySelector('.tab.lexique');
-    // const mainContainer = document.querySelector('.main-container');
+    const buttons = document.querySelectorAll('.button');
 
-    function toggleSidebar(activeTab, inactiveTab) {
+    function toggleSidebar(activeTab, inactiveTab, color) {
         sidebar.classList.toggle('collapsed');
-        // mainContainer.classList.toggle('collapsed');
         
         if (sidebar.classList.contains('collapsed')) {
             tabBibliographie.style.visibility = 'visible';
             tabLexique.style.visibility = 'visible';
+            sidebar.style.backgroundColor = '#9e94ca'; // Reset to default color when collapsed
         } else {
             activeTab.style.visibility = 'visible';
             inactiveTab.style.visibility = 'hidden';
+            sidebar.style.backgroundColor = color; // Change sidebar color
         }
     }
 
     tabBibliographie.addEventListener('click', function() {
-        toggleSidebar(tabBibliographie, tabLexique);
+        toggleSidebar(tabBibliographie, tabLexique, getComputedStyle(this).backgroundColor);
     });
 
     tabLexique.addEventListener('click', function() {
-        toggleSidebar(tabLexique, tabBibliographie);
+        toggleSidebar(tabLexique, tabBibliographie, getComputedStyle(this).backgroundColor);
     });
 
-    // Initial state
-    // tabBibliographie.style.visibility = 'visible';
-    // tabLexique.style.visibility = 'visible';
-    // sidebar.classList.add('collapsed');
-    // mainContainer.classList.add('collapsed');
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            sidebar.style.backgroundColor = getComputedStyle(this).backgroundColor;
+        });
+    });
 });
 
 // JavaScript to handle button clicks and load content dynamically

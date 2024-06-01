@@ -49,22 +49,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     tabLexique.addEventListener('click', function() {
         const lexiqueText = `
-            Haters :<br><br>
-            désigne en anglais les personnes qui, en raison d’un conflit d’opinions ou parce qu’ils détestent quelqu’un ou quelque chose, passent leur temps à dénigrer des célébrités, des émissions de télévisions, des films, des vidéastes web, etc. sur les réseaux sociaux, ou à commenter des articles sur la Toile.<br><br>
-            Les raids de cyberharcèlement :<br><br>
+            <strong>Haters :</strong><br><br>
+            Désigne en anglais les personnes qui, en raison d’un conflit d’opinions ou parce qu’ils détestent quelqu’un ou quelque chose, passent leur temps à dénigrer des célébrités, des émissions de télévisions, des films, des vidéastes web, etc. sur les réseaux sociaux, ou à commenter des articles sur la Toile.<br><br>
+            <strong>Les raids de cyberharcèlement :</strong><br><br>
             Il s’agit d’un harcèlement réalisé via les outils numériques, visant une ou un groupe de personnes et réalisé en meute. C’est à dire impliquant — de manière concertée ou non — de nombreux individus. Ces raids sont souvent impulsés par un·e chef·fe de meute qui pointe la ou les cibles à harceler. Ce cyberharcèlement en meute crée un climat menaçant et intimidant pour la victime via des commentaires d’internautes, des mentions, des vidéos, des montages d’images, des messages sur des forums, la publication de données personnelles, etc.<br><br>
-            Attention whore :<br><br>
+            <strong>Attention whore :</strong><br><br>
             Est une personne de quelque genre que ce soit qui publie sur internet dans le but — avoué ou non — de se faire remarquer. Le comportement ne se limite pas à la publication de selfies, mais s’étend à tout tweet, statut, commentaire, interaction, que le type d’attention recherchée soit positive ou négative.<br><br>
             L’attention whore éprouve la crainte que les photos ou les textes qu’il poste sur les réseaux sociaux ne recueille pas de like, ne soient pas partagés, etc. : sans capter l’attention, il est invisible, il n’existe pas.<br><br>
-            Ban :<br><br>
+            <strong>Ban :</strong><br><br>
             Se faire renvoyer / bannir d’une plateforme modéré<br><br>
-            Cancel :<br><br>
+            <strong>Cancel :</strong><br><br>
             le processus au moyen duquel une personne dénoncée publiquement est expulsée des cercles sociaux ou professionnels — sur les médias sociaux ou dans le monde physique ou les deux. La personne serait pour ainsi dire « annulée ».<br><br>
-            Bad buzz et buzz :<br><br>
+            <strong>Bad buzz et buzz :</strong><br><br>
             Un bad buzz est un phénomène de buzz c’est-à-dire un phénomène de « bouche à oreille » négatif qui se déroule et s’amplifie sur Internet.<br><br>
-            DM :<br><br>
+            <strong>DM :</strong><br><br>
             C’est d’ailleurs le sigle de l’anglais direct message. On le traduit parfois en français par MP, c’est-à-dire message privé.<br><br>
-            Mèmes :<br><br>
+            <strong>Mèmes :</strong><br><br>
             C’est un élément ou un phénomène repris et décliné en masse sur Internet. Il prend souvent la forme d’une photo avec ou sans légende, d’une vidéo, d’une phrase, d’un mot, d’un gif animé, d’un son, d’un personnage fictif ou réel ou d’une communauté.
         `;
         toggleSidebar(tabLexique, tabBibliographie, getComputedStyle(this).backgroundColor, lexiqueText);

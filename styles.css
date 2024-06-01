@@ -154,10 +154,9 @@ a {
 
 .sidebar-text {
     display: none; /* Initially hidden */
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 1em;
-    padding: 10px;
-    white-space: pre-wrap; /* Preserve whitespace and line breaks */
+    padding: 5px;
     height: calc(100vh - 160px); /* Adjust height as needed */
     overflow: auto; /* Enable scrolling if content exceeds height */
     word-wrap: break-word; /* Break long words to ensure they fit within the container */
